@@ -1,0 +1,10 @@
+-- CreateTable
+CREATE TABLE "Cursos" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nome" TEXT NOT NULL,
+    "professor" TEXT,
+    "cargaHoraria" INTEGER NOT NULL,
+    "descricao" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);

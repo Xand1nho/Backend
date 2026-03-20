@@ -1,0 +1,10 @@
+-- CreateTable
+CREATE TABLE "AlunosCursos" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "alunosId" INTEGER NOT NULL,
+    "cursosId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    CONSTRAINT "AlunosCursos_alunosId_fkey" FOREIGN KEY ("alunosId") REFERENCES "Alunos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "AlunosCursos_cursosId_fkey" FOREIGN KEY ("cursosId") REFERENCES "Cursos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
