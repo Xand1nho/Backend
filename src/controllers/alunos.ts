@@ -31,7 +31,7 @@ export default {
                     cpf,
                 },
             })
-            console.log("Usuário criado.");
+            
             return response.status(201).json(user);
         } catch (e: any) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {
@@ -45,11 +45,13 @@ export default {
     matricular: async (request: Request, response: Response) => { // matricula um aluno em um curso
         try {
             const { id } = request.params
+            const { cursosId } = request.body
+            
             const user = await prisma.alunos.update({
                 where: { id: +id },
                 data: {
                     cursos: {
-                        connect: { id: 2 }
+                        connect: { id: cursosId }
                     }
                 }
             })

@@ -30,7 +30,7 @@ export default {
                     descricao
                 },
             })
-            console.log("Created user")
+            
             return response.status(201).json(user)
         } catch (e) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {
@@ -57,7 +57,7 @@ export default {
                     id: +id 
                     }
             })
-            console.log("Usuario atualizado")
+            
             return response.status(201).json(user)
         } catch (e) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {
@@ -73,6 +73,7 @@ export default {
             const { id } = request.params
             const user = await prisma.cursos.findUnique({ where: { id: +id } })
             return response.status(200).json(user)
+            
         } catch (e) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {
                 // @ts-ignore
@@ -89,7 +90,7 @@ export default {
             const user = await prisma.cursos.delete({
                 where: { id: +id }
             })
-            console.log("Usuario deletado")
+            
             return response.status(200).json(user)
         } catch (e) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {
