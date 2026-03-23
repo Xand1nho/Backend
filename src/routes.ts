@@ -27,33 +27,20 @@ routes.delete("/alunos/:id", alunosController.delete); // routes.delete("/alunos
 
 // Cursos
 
-routes.get("/cursos", cursosController.list);
+routes.get("/cursos", cursosController.list); // lista curso 
 
-routes.get("/cursos/:id", cursosController.getById);
+routes.get("/cursos/:id", cursosController.getById); // pega um curso
 
-routes.post("/cursos", cursosController.create);
+routes.post("/cursos", cursosController.create); // cria um curso
 
-routes.put("/cursos/:id", cursosController.update);
+routes.put("/cursos/:id", cursosController.update); // atualizar curso
 
-routes.delete("/cursos/:id", cursosController.delete);
+routes.delete("/cursos/:id", cursosController.delete); // rota para deletar um curso 
 
 
-routes.post("/alunos/cursos/", async (request, response) => {
-    try {
-        const { alunosId, cursosId } = request.body; 
 
-        await prisma.alunosCursos.create({
-            data: {
-                alunos: { connect: { id: alunosId } },
-                cursos: { connect: { id: cursosId } },
-            },
-        });
+routes.post('/alunosMatricular', alunosController.matricular) // rota para matricular um aluno em um curso
 
-        return response.status(201).json({ success: true });
-
-    } catch (error) {
-        return response.status(500).json({ success: false, error });
-    }
-});
+routes.delete('/alunosDesmatricular', alunosController.desmatricular) // rota para desmatricular aluno de um curso
 
 export default routes;
