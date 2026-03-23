@@ -53,8 +53,8 @@ export default {
                     cursos: {
                         connect: { id: cursosId }
                     }
-                }
-            })
+                },
+        })
             return response.status(201).json(user)
         } catch (e) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {
