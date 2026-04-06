@@ -1,3 +1,5 @@
+// o app tem as configuracoes do servidor, como as rotas, o cors e o body parser
+
 import express from "express"; // Importa o módulo Express para criar o servidor web
 import cors from "cors"; // Importa o módulo CORS para habilitar o Cross-Origin Resource Sharing, permitindo que o servidor aceite requisições de outros domínios
 import routes from "./routes";
